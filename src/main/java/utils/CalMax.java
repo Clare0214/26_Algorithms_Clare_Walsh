@@ -1,6 +1,5 @@
 package utils;
 import java.util.Scanner;
-import java.util.Scanner;
 
 /**
  * Provides methods for reading integers and finding the largest value.
@@ -11,7 +10,7 @@ public class CalMax {
 
     /**
      * Prompts the user until they enter a valid integer.
-     * <p>
+     *
      * If the user enters something that is not a number, an error message is
      * displayed and they are prompted again.
      *
@@ -27,6 +26,41 @@ public class CalMax {
                 return Integer.parseInt(input.trim());
             } catch (NumberFormatException exception) {
                 System.out.println("Inappropriate input. Please enter a number.");
+            }
+        }
+    }/**
+     * Prompts the user until they enter an integer within the specified range.
+     * <p>
+     * If the input is not an integer or is outside the range, the user is informed
+     * and prompted again. The lower and upper limits are inclusive.
+     *
+     * @param prompt the text displayed when asking the user for an integer
+     * @param lowerLimit the lowest allowable value, inclusive
+     * @param upperLimit the highest allowable value, inclusive
+     * @return the valid integer entered by the user
+     * @throws IllegalArgumentException if lowerLimit is greater than upperLimit
+     */
+    public static int getValidInteger(String prompt, int lowerLimit, int upperLimit) {
+        if (lowerLimit > upperLimit) {
+            throw new IllegalArgumentException(
+                    "The lower limit cannot be greater than the upper limit.");
+        }
+
+        while (true) {
+            System.out.print(prompt);
+            String input = SCANNER.nextLine();
+
+            try {
+                int value = Integer.parseInt(input.trim());
+
+                if (value >= lowerLimit && value <= upperLimit) {
+                    return value;
+                }
+
+                System.out.println("The value must be between "
+                        + lowerLimit + " and " + upperLimit + ", inclusive.");
+            } catch (NumberFormatException exception) {
+                System.out.println("Inappropriate input. Please enter a whole number.");
             }
         }
     }
@@ -91,5 +125,6 @@ public class CalMax {
 
         return largest;
     }
-}
 
+
+}

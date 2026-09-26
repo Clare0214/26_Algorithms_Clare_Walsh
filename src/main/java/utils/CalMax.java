@@ -11,7 +11,7 @@ public class CalMax {
 
     /**
      * Prompts the user until they enter a valid integer.
-     *
+     * <p>
      * If the user enters something that is not a number, an error message is
      * displayed and they are prompted again.
      *
@@ -34,9 +34,9 @@ public class CalMax {
     /**
      * Finds the largest of three integers.
      *
-     * @param firstNumber the first number to compare
+     * @param firstNumber  the first number to compare
      * @param secondNumber the second number to compare
-     * @param thirdNumber the third number to compare
+     * @param thirdNumber  the third number to compare
      * @return the largest of the three numbers
      */
     public static int findMax(int firstNumber, int secondNumber, int thirdNumber) {
@@ -67,4 +67,29 @@ public class CalMax {
 
         System.out.println("The highest number is: " + highestNumber);
     }
+
+    /**
+     * finds the largest number in an array of integers
+     *
+     * @param numbers the array of integers to search it must not be empty
+     * @return the largest number in the array
+     * @throws IllegalArgumentException if the array is empty
+     *
+     */
+    public static int findMax(int[] numbers) {
+        if (numbers.length == 0) {
+            throw new IllegalArgumentException("The array must not be empty.");
+        }
+
+        int largest = numbers[0];
+
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > largest) {
+                largest = numbers[i];
+            }
+        }
+
+        return largest;
+    }
 }
+

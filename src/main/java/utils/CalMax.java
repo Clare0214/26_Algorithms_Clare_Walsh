@@ -1,77 +1,17 @@
 package utils;
-import java.util.Scanner;
 
 /**
- * Provides methods for reading integers and finding the largest value.
+ * Reads integers and displays the largest value.
  */
 public class CalMax {
-
-    private static final Scanner SCANNER = new Scanner(System.in);
-
-    /**
-     * Prompts the user until they enter a valid integer.
-     *
-     * If the user enters something that is not a number, an error message is
-     * displayed and they are prompted again.
-     *
-     * @param prompt the message displayed to the user
-     * @return the valid integer entered by the user
-     */
-    public static int getValidInteger(String prompt) {
-        while (true) {
-            System.out.print(prompt);
-            String input = SCANNER.nextLine();
-
-            try {
-                return Integer.parseInt(input.trim());
-            } catch (NumberFormatException exception) {
-                System.out.println("Inappropriate input. Please enter a number.");
-            }
-        }
-    }/**
-     * Prompts the user until they enter an integer within the specified range.
-     * <p>
-     * If the input is not an integer or is outside the range, the user is informed
-     * and prompted again. The lower and upper limits are inclusive.
-     *
-     * @param prompt the text displayed when asking the user for an integer
-     * @param lowerLimit the lowest allowable value, inclusive
-     * @param upperLimit the highest allowable value, inclusive
-     * @return the valid integer entered by the user
-     * @throws IllegalArgumentException if lowerLimit is greater than upperLimit
-     */
-    public static int getValidInteger(String prompt, int lowerLimit, int upperLimit) {
-        if (lowerLimit > upperLimit) {
-            throw new IllegalArgumentException(
-                    "The lower limit cannot be greater than the upper limit.");
-        }
-
-        while (true) {
-            System.out.print(prompt);
-            String input = SCANNER.nextLine();
-
-            try {
-                int value = Integer.parseInt(input.trim());
-
-                if (value >= lowerLimit && value <= upperLimit) {
-                    return value;
-                }
-
-                System.out.println("The value must be between "
-                        + lowerLimit + " and " + upperLimit + ", inclusive.");
-            } catch (NumberFormatException exception) {
-                System.out.println("Inappropriate input. Please enter a whole number.");
-            }
-        }
-    }
 
     /**
      * Finds the largest of three integers.
      *
-     * @param firstNumber  the first number to compare
-     * @param secondNumber the second number to compare
-     * @param thirdNumber  the third number to compare
-     * @return the largest of the three numbers
+     * @param firstNumber the first integer to compare
+     * @param secondNumber the second integer to compare
+     * @param thirdNumber the third integer to compare
+     * @return the largest of the three integers
      */
     public static int findMax(int firstNumber, int secondNumber, int thirdNumber) {
         int largest = firstNumber;
@@ -88,31 +28,15 @@ public class CalMax {
     }
 
     /**
-     * Runs the program.
+     * Finds the largest integer in an array.
      *
-     * @param args command-line arguments
-     */
-    public static void main(String[] args) {
-        int num1 = getValidInteger("Please enter the first integer: ");
-        int num2 = getValidInteger("Please enter the second integer: ");
-        int num3 = getValidInteger("Please enter the third integer: ");
-
-        int highestNumber = findMax(num1, num2, num3);
-
-        System.out.println("The highest number is: " + highestNumber);
-    }
-
-    /**
-     * finds the largest number in an array of integers
-     *
-     * @param numbers the array of integers to search it must not be empty
-     * @return the largest number in the array
-     * @throws IllegalArgumentException if the array is empty
-     *
+     * @param numbers the array of integers to search; it must not be empty
+     * @return the largest integer in the array
+     * @throws IllegalArgumentException if the array is null or empty
      */
     public static int findMax(int[] numbers) {
-        if (numbers.length == 0) {
-            throw new IllegalArgumentException("The array must not be empty.");
+        if (numbers == null || numbers.length == 0) {
+            throw new IllegalArgumentException("The array must not be null or empty.");
         }
 
         int largest = numbers[0];
@@ -124,5 +48,19 @@ public class CalMax {
         }
 
         return largest;
+    }
+
+    /**
+     * Reads three integers and displays the largest.
+     *
+     * @param args command-line arguments
+     */
+    public static void main(String[] args) {
+        int num1 = InputUtility.getValidInteger("Please enter the first integer: ");
+        int num2 = InputUtility.getValidInteger("Please enter the second integer: ");
+        int num3 = InputUtility.getValidInteger("Please enter the third integer: ");
+
+        int highestNumber = findMax(num1, num2, num3);
+        System.out.println("The highest number is: " + highestNumber);
     }
 }

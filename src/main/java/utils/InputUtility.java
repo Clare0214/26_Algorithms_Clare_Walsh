@@ -28,6 +28,16 @@ public class InputUtility {
             }
         }
     }
+    /**
+     * Prompts the user to enter a line of text.
+     *
+     * @param prompt the text displayed when asking for input
+     * @return the line entered by the user
+     */
+    public static String getValidString(String prompt){
+        System.out.print(prompt);
+        return SCANNER.nextLine();
+    }
 
     /**
      * Prompts the user until they enter a number within the specified inclusive range
@@ -61,5 +71,6 @@ public class InputUtility {
                 System.out.println("Inappropriate input. Please enter a number.");
             }
         }
+
     }
 }

@@ -7,7 +7,8 @@ import utils.InputUtility;
  */
 public class ArrayManipulation {
     /**
-     * Runs the program
+     * Reads ten grades and then ten pieces of text, then displays the average,
+     * highest grade, and text that comes last alphabetically.
      *
      * @param args command-line arguments
      */
@@ -18,9 +19,15 @@ public class ArrayManipulation {
             grades[i] = InputUtility.getValidInteger("Enter grade" + (i + 1) + ":");
 
         }
-        double gpa = ArrayUtils.calcAverage(grades);
-        System.out.println("GPA (average grade):" + gpa);
+        System.out.println("GPA(average grade):" + ArrayUtils.calcAverage(grades));
+        System.out.println("Higest grade:"+ ArrayUtils.findMax(grades));
 
+        String[]words = new String[10];
+
+        for(int i = 0; i < words.length; i++) {
+            words[i] = InputUtility.getValidString("Enter text" + (i + 1) + ":");
+        }
+        System.out.println("Last alphabetically: " +ArrayUtils.findMax(words));
     }
 
 }

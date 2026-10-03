@@ -92,4 +92,23 @@ public class ArrayUtils {
         }
         return last;
     }
+    /**
+     * Finds the smallest integer in an array
+     *
+     * @param numbers the integer array to search
+     * @return the smallest integer in the array
+     * @throws IllegalArgumentException if the array is null or empty
+     */
+    public static int findMin(int[]numbers) {
+        if (numbers == null || numbers.length == 0) {
+            throw new IllegalArgumentException("the array must not be null or empty");
+        }
+        int smallest = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] < smallest) {
+                smallest = numbers[i];
+            }
+        }
+        return smallest;
+    }
     }

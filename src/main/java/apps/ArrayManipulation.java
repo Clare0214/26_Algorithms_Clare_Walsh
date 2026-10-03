@@ -26,6 +26,9 @@ public class ArrayManipulation {
         int countOfSeventies = ArrayUtils.count(grades,70);
         System.out.println("Number of subjects with a grade of 70:" + countOfSeventies);
 
+        int mostFrequentGrade = ArrayUtils.getMostFrequent(grades);
+        System.out.println("Most frequently occuring grade:" + mostFrequentGrade);
+
         String[]words = new String[10];
 
         for(int i = 0; i < words.length; i++) {
@@ -35,4 +38,6 @@ public class ArrayManipulation {
         System.out.println("Last alphabetically: " +ArrayUtils.findMax(words));
     }
 
-}
+    }
+
+

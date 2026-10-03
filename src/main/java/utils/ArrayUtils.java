@@ -140,4 +140,21 @@ public class ArrayUtils {
         }
         return first;
     }
+    /**
+     * Counts how many times a value appears in an integer array
+     *
+     * @param nums the integer array to search
+     * @param value the integer value to count
+     * @return the number of times value appears in nums
+     */
+    public static int count(int[]nums, int value){
+        int frequency = 0;
+
+        for(int num: nums) {
+            if (num == value) {
+                frequency++;
+            }
+        }
+        return frequency;
+    }
 }

@@ -157,4 +157,29 @@ public class ArrayUtils {
         }
         return frequency;
     }
+    /**
+     * Returns the element that appears most frequently in an integer array
+     *
+     * @param nums the integer array to search
+     * @return the most frequent element; if multiple elements share the highest
+     *         frequency, returns the one appearing first in the array
+     * @throws IllegalArgumentException if nums is null or empty
+     */
+    public static int getMostFrequent(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("the array must not be null or empty.");
+        }
+        int mostFrequent = nums[0];
+        int highestFrequency = count(nums, mostFrequent);
+
+        for (int i = 1; i < nums.length; i++) {
+            int frequency = count(nums, nums[i]);
+
+            if (frequency > highestFrequency) {
+                mostFrequent = nums[i];
+                highestFrequency = frequency;
+            }
+        }
+        return mostFrequent;
+    }
 }

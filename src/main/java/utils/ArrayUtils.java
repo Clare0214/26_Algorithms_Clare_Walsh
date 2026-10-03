@@ -199,5 +199,23 @@ public class ArrayUtils {
         }
         return count;
     }
+    /**
+     * Counts the elements in an integer array that are greater than its average.
+     *
+     * @param nums the integer array to check; it must not be empty
+     * @return the number of elements greater than the array's average
+     * @throws IllegalArgumentException if nums is empty
+     */
+    public static int countGreaterThanAverage(int[]nums){
+        double average = calcAverage(nums);
+        int count = 0;
+
+        for(int number : nums) {
+            if (number > average) {
+                count++;
+            }
+        }
+        return count;
+    }
 
 }

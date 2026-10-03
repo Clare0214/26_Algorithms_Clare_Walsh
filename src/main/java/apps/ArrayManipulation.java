@@ -21,6 +21,7 @@ public class ArrayManipulation {
         }
         System.out.println("GPA(average grade):" + ArrayUtils.calcAverage(grades));
         System.out.println("Higest grade:"+ ArrayUtils.findMax(grades));
+        System.out.println("Lowest grade:" + ArrayUtils.findMin(grades));
 
         String[]words = new String[10];
 

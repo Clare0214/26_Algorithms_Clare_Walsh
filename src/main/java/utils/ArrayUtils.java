@@ -67,6 +67,7 @@ public class ArrayUtils {
         }
         return largest;
     }
+
     /**
      * finds the string that comes last alphabetically in an array, ignoring case.
      *
@@ -74,7 +75,7 @@ public class ArrayUtils {
      * @return the string that comes last alphabetically
      * @throws IllegalArgumentException if the array is null, empty or contains null
      */
-    public static String findMax(String [] words) {
+    public static String findMax(String[] words) {
         if (words == null || words.length == 0) {
             throw new IllegalArgumentException("the array must not be null or empty");
         }
@@ -92,6 +93,7 @@ public class ArrayUtils {
         }
         return last;
     }
+
     /**
      * Finds the smallest integer in an array
      *
@@ -99,7 +101,7 @@ public class ArrayUtils {
      * @return the smallest integer in the array
      * @throws IllegalArgumentException if the array is null or empty
      */
-    public static int findMin(int[]numbers) {
+    public static int findMin(int[] numbers) {
         if (numbers == null || numbers.length == 0) {
             throw new IllegalArgumentException("the array must not be null or empty");
         }
@@ -111,4 +113,31 @@ public class ArrayUtils {
         }
         return smallest;
     }
+
+    /**
+     * Finds the string that comes first alphabetically in an array, ignoring case.
+     *
+     * @param words the string array to search
+     * @return the string that comes first alphabetically
+     * @throws IllegalArgumentException if the array is null,empty or contains null
+     */
+    public static String findMin(String[] words) {
+        if (words == null || words.length == 0) {
+            throw new IllegalArgumentException("The array must not be null or empty ");
+        }
+        if (words[0] == null) {
+            throw new IllegalArgumentException("the array must not contain null");
+        }
+        String first = words[0];
+
+        for (int i = 1; i < words.length; i++) {
+            if (words[i] == null) {
+                throw new IllegalArgumentException(" the array must not contain null ");
+            }
+            if (words[i].compareToIgnoreCase(first) < 0) {
+                first = words[i];
+            }
+        }
+        return first;
     }
+}

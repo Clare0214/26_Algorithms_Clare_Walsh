@@ -28,6 +28,7 @@ public class ArrayManipulation {
         for(int i = 0; i < words.length; i++) {
             words[i] = InputUtility.getValidString("Enter text" + (i + 1) + ":");
         }
+        System.out.println("First alphabetically"+ ArrayUtils.findMin(words));
         System.out.println("Last alphabetically: " +ArrayUtils.findMax(words));
     }
 

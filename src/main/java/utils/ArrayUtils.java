@@ -182,4 +182,22 @@ public class ArrayUtils {
         }
         return mostFrequent;
     }
+    /**
+     * Counts how many elements in an integer array are greater than a value.
+     *
+     * @param nums the integer array to search
+     * @param value the number to compare each array element agianst
+     * @return the number of elements greater than value
+     */
+    public static int countGreater(int[] nums, int value) {
+        int count = 0;
+
+        for (int number : nums) {
+            if (number > value) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 }

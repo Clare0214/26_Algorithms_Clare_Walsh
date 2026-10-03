@@ -9,21 +9,23 @@ public class ArrayUtils {
      *
      * @param numbers the integer array whose elements will be displayed
      */
-    public static void  displayArray(int[]numbers) {
+    public static void displayArray(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             System.out.println("position" + i + ": " + numbers[i]);
         }
     }
-        /**
-         * prints each string array element along with index
-         *
-         * @param values the string array whose element will be display
-         */
-        public static void displayArray(String[]values) {
-            for (int i = 0; i < values.length; i++) {
-                System.out.println("Position " + i + ": " + values[i]);
-            }
+
+    /**
+     * prints each string array element along with index
+     *
+     * @param values the string array whose element will be display
+     */
+    public static void displayArray(String[] values) {
+        for (int i = 0; i < values.length; i++) {
+            System.out.println("Position " + i + ": " + values[i]);
         }
+    }
+
     /**
      * Calculates the average of the integers in an array
      *
@@ -31,17 +33,63 @@ public class ArrayUtils {
      * @return the average of the array's elements
      * @throws IllegalArgumentException if the array is empty
      */
-    public static double calcAverage(int[]numbers){
-        if(numbers.length == 0) {
+    public static double calcAverage(int[] numbers) {
+        if (numbers.length == 0) {
             throw new IllegalArgumentException("The array must not be empty.");
         }
         long sum = 0;
 
-        for(int number: numbers ) {
+        for (int number : numbers) {
             sum += number;
         }
         return (double) sum / numbers.length;
 
-}
-    
-}
+
+    }
+
+    /**
+     * Finds the largest integer in an array
+     *
+     * @param numbers the integer array to search; it must not be empty
+     * @return the largest integer in the array
+     * @throws IllegalArgumentException if the array is empty
+     */
+    public static int findMax(int[] numbers) {
+        if (numbers.length == 0) {
+            throw new IllegalArgumentException("The array must not by empty");
+        }
+        int largest = numbers[0];
+
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > largest) {
+                largest = numbers[i];
+            }
+        }
+        return largest;
+    }
+    /**
+     * finds the string that comes last alphabetically in an array, ignoring case.
+     *
+     * @param words the string array to search
+     * @return the string that comes last alphabetically
+     * @throws IllegalArgumentException if the array is null, empty or contains null
+     */
+    public static String findMax(String [] words) {
+        if (words == null || words.length == 0) {
+            throw new IllegalArgumentException("the array must not be null or empty");
+        }
+        if (words[0] == null) {
+            throw new IllegalArgumentException("the array must not contain null.");
+        }
+        String last = words[0];
+        for (int i = 1; i < words.length; i++) {
+            if (words[i] == null) {
+                throw new IllegalArgumentException("the array must not contain null");
+            }
+            if (words[i].compareToIgnoreCase(last) > 0) {
+                last = words[i];
+            }
+        }
+        return last;
+    }
+    }

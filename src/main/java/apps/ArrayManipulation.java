@@ -23,6 +23,9 @@ public class ArrayManipulation {
         System.out.println("Higest grade:"+ ArrayUtils.findMax(grades));
         System.out.println("Lowest grade:" + ArrayUtils.findMin(grades));
 
+        int countOfSeventies = ArrayUtils.count(grades,70);
+        System.out.println("Number of subjects with a grade of 70:" + countOfSeventies);
+
         String[]words = new String[10];
 
         for(int i = 0; i < words.length; i++) {

@@ -140,29 +140,31 @@ public class ArrayUtils {
         }
         return first;
     }
+
     /**
      * Counts how many times a value appears in an integer array
      *
-     * @param nums the integer array to search
+     * @param nums  the integer array to search
      * @param value the integer value to count
      * @return the number of times value appears in nums
      */
-    public static int count(int[]nums, int value){
+    public static int count(int[] nums, int value) {
         int frequency = 0;
 
-        for(int num: nums) {
+        for (int num : nums) {
             if (num == value) {
                 frequency++;
             }
         }
         return frequency;
     }
+
     /**
      * Returns the element that appears most frequently in an integer array
      *
      * @param nums the integer array to search
      * @return the most frequent element; if multiple elements share the highest
-     *         frequency, returns the one appearing first in the array
+     * frequency, returns the one appearing first in the array
      * @throws IllegalArgumentException if nums is null or empty
      */
     public static int getMostFrequent(int[] nums) {
@@ -182,10 +184,11 @@ public class ArrayUtils {
         }
         return mostFrequent;
     }
+
     /**
      * Counts how many elements in an integer array are greater than a value.
      *
-     * @param nums the integer array to search
+     * @param nums  the integer array to search
      * @param value the number to compare each array element agianst
      * @return the number of elements greater than value
      */
@@ -199,6 +202,7 @@ public class ArrayUtils {
         }
         return count;
     }
+
     /**
      * Counts the elements in an integer array that are greater than its average.
      *
@@ -206,11 +210,11 @@ public class ArrayUtils {
      * @return the number of elements greater than the array's average
      * @throws IllegalArgumentException if nums is empty
      */
-    public static int countGreaterThanAverage(int[]nums){
+    public static int countGreaterThanAverage(int[] nums) {
         double average = calcAverage(nums);
         int count = 0;
 
-        for(int number : nums) {
+        for (int number : nums) {
             if (number > average) {
                 count++;
             }
@@ -218,4 +222,14 @@ public class ArrayUtils {
         return count;
     }
 
+    public static int[] grow(int[] nums) {
+        int[] largerArray = new int[nums.length + 10];
+
+        for (int i = 0; i < nums.length; i++) {
+            largerArray[i] = nums[i];
+        }
+
+        return largerArray;
+    }
 }
+

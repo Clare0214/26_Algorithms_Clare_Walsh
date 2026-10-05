@@ -231,5 +231,14 @@ public class ArrayUtils {
 
         return largerArray;
     }
+    public static String[] resize(String[]text,int newSize) {
+        String[] resizedArray = new String[newSize];
+        int elementsToCopy = Math.min(text.length, newSize);
+
+        for (int i = 0; i < elementsToCopy; i++) {
+            resizedArray[i] = text[i];
+        }
+        return resizedArray;
+    }
 }
 

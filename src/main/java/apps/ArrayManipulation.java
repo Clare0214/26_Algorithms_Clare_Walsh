@@ -16,7 +16,7 @@ public class ArrayManipulation {
         int[] grades = new int[10];
 
         for (int i = 0; i < grades.length; i++) {
-            grades[i] = InputUtility.getValidInteger("Enter grade" + (i + 1) + ":");
+            grades[i] = InputUtility.getValidInteger("Enter grade" + (i + 1) + ":", 1, Integer.MAX_VALUE);
 
         }
         System.out.println("GPA(average grade):" + ArrayUtils.calcAverage(grades));

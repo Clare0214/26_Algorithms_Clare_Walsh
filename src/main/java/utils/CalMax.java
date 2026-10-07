@@ -56,9 +56,9 @@ public class CalMax {
      * @param args command-line arguments
      */
     public static void main(String[] args) {
-        int num1 = InputUtility.getValidInteger("Please enter the first integer: ");
-        int num2 = InputUtility.getValidInteger("Please enter the second integer: ");
-        int num3 = InputUtility.getValidInteger("Please enter the third integer: ");
+        int num1 = InputUtility.getValidInteger("Please enter the first integer: ", 1, Integer.MAX_VALUE);
+        int num2 = InputUtility.getValidInteger("Please enter the second integer: ", 1, Integer.MAX_VALUE);
+        int num3 = InputUtility.getValidInteger("Please enter the third integer: ", 1, Integer.MAX_VALUE);
 
         int highestNumber = findMax(num1, num2, num3);
         System.out.println("The highest number is: " + highestNumber);

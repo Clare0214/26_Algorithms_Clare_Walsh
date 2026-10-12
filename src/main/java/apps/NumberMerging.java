@@ -1,5 +1,6 @@
 package apps;
 
+import java.util.Arrays;
 import utils.ArrayUtils;
 import utils.InputUtility;
 
@@ -26,6 +27,8 @@ public class NumberMerging {
             nums2[i] = InputUtility.getValidInteger("Number " + (i + 1) + ": ");
 
         }
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
         int[] merged = ArrayUtils.merge(nums1, nums2);
 
         System.out.println("Merged numbers:");

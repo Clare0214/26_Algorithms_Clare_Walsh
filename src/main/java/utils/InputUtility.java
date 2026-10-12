@@ -14,12 +14,10 @@ public class InputUtility {
      * if the user does not enter a number, an error message is displayed and
      * the user is prompted again using the same prompt
      *
-     * @param prompt   the text displayed when asking the user for an integer
-     * @param i
-     * @param maxValue
+     * @param prompt the text displayed when asking the user for an integer
      * @return the validated integer entered by the user
      */
-    public static int getValidInteger(String prompt, int i, int maxValue) {
+    public static int getValidInteger(String prompt) {
         while (true) {
             System.out.print(prompt);
             String input = SCANNER.nextLine();

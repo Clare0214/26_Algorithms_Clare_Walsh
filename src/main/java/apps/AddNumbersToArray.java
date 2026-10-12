@@ -13,14 +13,14 @@ public class AddNumbersToArray {
      * @param args command-line arguments
      */
     public static void main(String[] args) {
-        int size = InputUtility.getValidInteger("How many numbers should the array initially hold? ",1, Integer.MAX_VALUE);
+        int size = InputUtility.getValidInteger("How many numbers should the array initially hold? ");
 
         int[] numbers = new int[size];
         int numberCount = 0;
 
         while (true) {
             while (numberCount < numbers.length) {
-                numbers[numberCount] = InputUtility.getValidInteger("Enter number " + (numberCount + 1) + ": ", 1, Integer.MAX_VALUE);
+                numbers[numberCount] = InputUtility.getValidInteger("Enter number " + (numberCount + 1) + ": ");
                 numberCount++;
             }
             String answer;

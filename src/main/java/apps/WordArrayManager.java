@@ -38,7 +38,7 @@ public class WordArrayManager {
         for (int i = 0; i < wordCount; i++) {
             System.out.println((i + 1) + ". " + words[i]);
         }
-        int wordsToKeep = InputUtility.getValidInteger("How many words you to keep?", 0, wordCount);
+        int wordsToKeep = InputUtility.getValidInteger("How many words you to keep?");
 
         String[] keptWords = ArrayUtils.resize(words, wordsToKeep);
 

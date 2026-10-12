@@ -240,6 +240,14 @@ public class ArrayUtils {
         }
         return resizedArray;
     }
+
+    /**
+     * Combines two integers arrays into a new array without sorting the elements
+     *
+     * @param nums1 the first integer array
+     * @param nums2 the second integer array
+     * @return a new array containing all elements of nums1 followed by all elements of nums2
+     */
     public static int[]merge(int[]nums1,int[]nums2) {
         int[] merged = new int[nums1.length + nums2.length];
 

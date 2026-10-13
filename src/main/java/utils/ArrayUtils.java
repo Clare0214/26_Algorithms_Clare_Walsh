@@ -295,5 +295,42 @@ public class ArrayUtils {
         return merged;
 
     }
+    /**
+     * Mergers two case-insensitively sorted string arrays into one sorted array
+     *
+     * @param text1 the first string array, sorted alphabetically
+     * @param text2 the second string array, sorted alphabetically
+     * @return a new array containing all strings in case-insensitive alphabetical order
+     */
+    public static String[]orderedMerge(String[]text1,String[]text2){
+        String[]merged = new String[text1.length + text2.length];
+
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        while(i < text1.length && j < text2.length) {
+            if (text1[i].compareToIgnoreCase(text2[j]) <= 0) {
+                merged[k] = text1[i];
+                i++;
+            } else {
+                merged[k] = text2[j];
+                j++;
+            }
+            k++;
+        }
+        while(i < text1.length) {
+            merged[k]= text1[i];
+            i++;
+            k++;
+        }
+        while(j < text2.length) {
+            merged[k] = text2[j];
+            j++;
+            k++;
+        }
+        return merged;
+
+    }
 }
 

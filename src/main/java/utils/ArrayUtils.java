@@ -332,5 +332,41 @@ public class ArrayUtils {
         return merged;
 
     }
+    /**
+     * partitions the values into thoses greater than the pivot followed by those
+     * less than or equal to the pivot, preserving their order within each group.
+     *
+     * @param nums the integer array to partition
+     * @param pivot the value used to divide the array
+     * @return a new array with values greater than the pivot first, followed by values less than or equal to the pivot
+     * @throws IllegalArgumentException if nums is null
+     */
+    public static int[]partition(int [] nums, int pivot){
+        if(nums == null) {
+            throw new IllegalArgumentException("the array must not be null.");
+        }
+        int[]greaterBuffer = new int[nums.length];
+        int[]lesserOrEqualBuffer = new int[nums.length];
+        int greaterCount = 0;
+        int lesserOrEqualCount = 0;
+
+        for(int num : nums) {
+            if (num > pivot) {
+                greaterBuffer[greaterCount++] = num;
+            } else {
+                lesserOrEqualBuffer[lesserOrEqualCount++] = num;
+            }
+        }
+        int[]greaterValues = new int [greaterCount];
+        int[]lesserOrEqualValues = new int[lesserOrEqualCount];
+
+        for(int i = 0; i < greaterCount; i ++ ) {
+            greaterValues[i] = greaterBuffer[i];
+        }
+        for(int i = 0; i < lesserOrEqualCount; i++ ) {
+            lesserOrEqualValues[i] = lesserOrEqualBuffer[i];
+        }
+        return merge(greaterValues, lesserOrEqualValues);
+    }
 }
 

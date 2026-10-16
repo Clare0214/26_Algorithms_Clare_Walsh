@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.Arrays;
+
 /**
  * Provides utility methods for working with arrays
  */
@@ -368,5 +370,50 @@ public class ArrayUtils {
         }
         return merge(greaterValues, lesserOrEqualValues);
     }
+    /**
+     * Partitions string value into those less than or equal to the pivot
+     * and those greater than the pivot, then merges them into ascending order.
+     *
+     * @param text the string array to partition
+     * @param pivot the values used to divide the array
+     * @return a new array containing all values in ascending order, with values
+     *         less than or equal to the pivot before those greater than the pivot
+     * @throws IllegalArgumentException if text is null
+     */
+    public static String[] partition(String[] text,String pivot) {
+        if (text == null) {
+            throw new IllegalArgumentException("The array must not be null.");
+
+        }
+        String[] lowerOrEqual = new String[text.length];
+        String[] greater = new String[text.length];
+
+        int lowerCount = 0;
+        int greaterCount = 0;
+
+        for (String value : text) {
+            if (value.compareToIgnoreCase(pivot) <= 0) {
+                lowerOrEqual[lowerCount] = value;
+                lowerCount++;
+            } else {
+                greater[greaterCount] = value;
+                greaterCount++;
+            }
+        }
+        String[] lowerOrEqualTrimmed = new String[lowerCount];
+        String[] greaterTrimmed = new String[greaterCount];
+
+        for (int i = 0; i < lowerCount; i++) {
+            lowerOrEqualTrimmed[i] = lowerOrEqual[i];
+        }
+        for (int i = 0; i < lowerCount; i++) {
+            greaterTrimmed[i] = greater[i];
+        }
+        Arrays.sort(lowerOrEqualTrimmed, String.CASE_INSENSITIVE_ORDER);
+        Arrays.sort(greaterTrimmed, String.CASE_INSENSITIVE_ORDER);
+
+        return orderedMerge(lowerOrEqualTrimmed, greaterTrimmed);
+    }
+
 }
 

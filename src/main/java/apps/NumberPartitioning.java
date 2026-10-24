@@ -1,3 +1,4 @@
+package apps;
 
 import utils.ArrayUtils;
 import utils.InputUtility;
@@ -59,7 +60,4 @@ public static int[] deduplicate(int[]nums) {
         }
     }
     return filtered;
-}
-
-void main() {
 }

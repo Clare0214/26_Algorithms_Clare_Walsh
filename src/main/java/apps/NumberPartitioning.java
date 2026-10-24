@@ -3,15 +3,16 @@ package apps;
 import utils.ArrayUtils;
 import utils.InputUtility;
 
-/**
- * reads ten grades, groups passing grades first, and displays the pass count.
- */
 public class NumberPartitioning {
+    // main method goes here
+
+
     /**
      * Runs the program
      *
      * @param args command-line arguments
      */
+
     public static void main(String[] args) {
         int[] grades = new int[10];
 
@@ -61,3 +62,5 @@ public static int[] deduplicate(int[]nums) {
     }
     return filtered;
 }
+
+

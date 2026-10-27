@@ -414,6 +414,41 @@ public class ArrayUtils {
 
         return orderedMerge(lowerOrEqualTrimmed, greaterTrimmed);
     }
+    /**
+     * Returns a new array containing the first occurrence of each number
+     *
+     * @param numbers the array to deduplicate
+     * @return a new array with duplicate numbers removed
+     * @throws IllegalArgumentException if numbers is null
+     */
+    public static int[] deduplicate(int[] numbers) {
+        if (numbers == null) {
+            throw new IllegalArgumentException("the array must not be null. ");
+
+        }
+        int[] uniqueNumbers = new int[0];
+
+        for (int number : numbers) {
+            boolean alreadySeen = false;
+
+            for (int existing : uniqueNumbers) {
+                if (existing == number) {
+                    alreadySeen = true;
+                    break;
+                }
+            }
+            if (!alreadySeen) {
+                int[] largerArray = new int[uniqueNumbers.length + 1];
+
+                for (int i = 0; i < uniqueNumbers.length; i++) {
+                    largerArray[i] = uniqueNumbers[i];
+                }
+                largerArray[uniqueNumbers.length] = number;
+                uniqueNumbers = largerArray;
+            }
+        }
+        return uniqueNumbers;
+    }
 
 }
 

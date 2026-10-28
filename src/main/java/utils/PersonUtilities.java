@@ -15,5 +15,18 @@ public class PersonUtilities {
         }
         return blankCount;
     }
+    public static Person[] removeBlanks(Person[] people){
+        int blankCount = countBlank(people);
+        Person[]result = new Person[people.length - blankCount];
+
+        int resultIndex = 0;
+        for(Person person : people) {
+            if (person != null) {
+                result[resultIndex] = person;
+                resultIndex++;
+            }
+        }
+        return result;
+    }
 }
 

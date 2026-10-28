@@ -3,6 +3,7 @@ package apps;
 import java.util.Arrays;
 import utils.ArrayUtils;
 import utils.InputUtility;
+import utils.NumberUtilities;
 
 /**
  * Reads numbers into an array, removes duplicates, and reports how many removed
@@ -27,7 +28,7 @@ public class NumberDuplicateRemoval {
         }
         System.out.println("Original array:" + Arrays.toString(numbers));
 
-        int[] uniqueNumbers = ArrayUtils.deduplicate(numbers);
+        int[] uniqueNumbers = NumberUtilities.filter(numbers);
 
         System.out.println("Array with duplicates removed:" + Arrays.toString(uniqueNumbers));
         System.out.println("number of duplicates removed:" + (numbers.length - uniqueNumbers.length));

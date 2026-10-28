@@ -1,7 +1,7 @@
 package apps;
 
 import java.util.Objects;
-public class Person {
+public class Person implements Comparable<Person>{
     private String firstName;
     private String lastName;
     private int age;
@@ -21,6 +21,10 @@ public class Person {
         return age;
     }
     @Override
+    public int compareTo(Person other){
+        return firstName.compareTo(other.firstName);
+    }
+    @Override
     public boolean equals(Object other) {
         if (this == other) {
             return true;
@@ -37,4 +41,5 @@ public class Person {
     public int hashCode(){
         return Objects.hash(firstName, lastName, age );
     }
+
 }

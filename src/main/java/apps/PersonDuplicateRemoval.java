@@ -23,7 +23,8 @@ public class PersonDuplicateRemoval {
 
             people[i] = new Person(firstName, lastName, age);
         }
-        System.out.println("original people:");
+        Arrays.sort(people);
+        System.out.println("people sorted by first name ");
         displayPeople(people);
 
         Person[] uniquePeople = PersonUtilities.filtered(people);
@@ -31,12 +32,11 @@ public class PersonDuplicateRemoval {
         System.out.println("People after removing duplicate first names:");
         displayPeople(uniquePeople);
     }
-    private static void displayPeople(Person[]people){
-        for(Person person : people) {
-            System.out.printf("%s %s, age %d%n",
-                    person.getFirstName(),
-                    person.getLastName(),
-                    person.getAge());
+    private static void displayPeople(Person[]people) {
+        for (Person person : people){
+            System.out.println(person.getFirstName() + ""
+            + person.getLastName() + ",age"
+            + person.getAge());
         }
     }
 }

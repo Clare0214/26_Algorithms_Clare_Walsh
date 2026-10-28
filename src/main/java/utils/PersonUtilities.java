@@ -28,5 +28,24 @@ public class PersonUtilities {
         }
         return result;
     }
+    public static Person[] filtered(Person[] people) {
+        if (people == null) {
+            throw new IllegalArgumentException("The array must not be null.");
+        }
+        Person[] filtered = people.clone();
+
+        for (int i = 0; i < filtered.length; i++) {
+            if (filtered[i] == null) {
+                continue;
+            }
+            for (int j = 0; j < i; j++) {
+                if (filtered[j] != null && filtered[i].equals(filtered[j])) {
+                    filtered[i] = null;
+                    break;
+                }
+            }
+        }
+        return removeBlanks(filtered);
+    }
 }
 

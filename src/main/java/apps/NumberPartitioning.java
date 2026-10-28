@@ -1,5 +1,4 @@
 package apps;
-
 import utils.ArrayUtils;
 import utils.InputUtility;
 

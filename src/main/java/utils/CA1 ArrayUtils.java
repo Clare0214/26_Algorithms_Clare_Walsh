@@ -233,7 +233,8 @@ public class ArrayUtils
 
         return largerArray;
     }
-    public static String[] resize(String[]text,int newSize) {
+
+    public static String[] resize(String[] text, int newSize) {
         String[] resizedArray = new String[newSize];
         int elementsToCopy = Math.min(text.length, newSize);
 
@@ -250,7 +251,7 @@ public class ArrayUtils
      * @param nums2 the second integer array
      * @return a new array containing all elements of nums1 followed by all elements of nums2
      */
-    public static int[]merge(int[]nums1,int[]nums2) {
+    public static int[] merge(int[] nums1, int[] nums2) {
         int[] merged = new int[nums1.length + nums2.length];
 
         for (int i = 0; i < nums1.length; i++) {
@@ -261,6 +262,7 @@ public class ArrayUtils
         }
         return merged;
     }
+
     /**
      * Merges two ascending integer arrays into one ascending array
      *
@@ -268,13 +270,13 @@ public class ArrayUtils
      * @param nums2 the second array, sorted in ascending order
      * @return a new ascending array containing all elements from both arrays
      */
-    public static int[] orderedMerge(int[] nums1, int[]nums2){
+    public static int[] orderedMerge(int[] nums1, int[] nums2) {
         int[] merged = new int[nums1.length + nums2.length];
         int i = 0;
         int j = 0;
         int k = 0;
 
-        while(i < nums1.length && j < nums2.length) {
+        while (i < nums1.length && j < nums2.length) {
             if (nums1[i] <= nums2[j]) {
                 merged[k] = nums1[i];
                 i++;
@@ -284,12 +286,12 @@ public class ArrayUtils
             }
             k++;
         }
-        while(i < nums1.length) {
+        while (i < nums1.length) {
             merged[k] = nums1[i];
             i++;
             k++;
         }
-        while(j < nums2.length) {
+        while (j < nums2.length) {
             merged[k] = nums2[j];
             j++;
             k++;
@@ -297,6 +299,7 @@ public class ArrayUtils
         return merged;
 
     }
+
     /**
      * Mergers two case-insensitively sorted string arrays into one sorted array
      *
@@ -304,14 +307,14 @@ public class ArrayUtils
      * @param text2 the second string array, sorted alphabetically
      * @return a new array containing all strings in case-insensitive alphabetical order
      */
-    public static String[]orderedMerge(String[]text1,String[]text2){
-        String[]merged = new String[text1.length + text2.length];
+    public static String[] orderedMerge(String[] text1, String[] text2) {
+        String[] merged = new String[text1.length + text2.length];
 
         int i = 0;
         int j = 0;
         int k = 0;
 
-        while(i < text1.length && j < text2.length) {
+        while (i < text1.length && j < text2.length) {
             if (text1[i].compareToIgnoreCase(text2[j]) <= 0) {
                 merged[k] = text1[i];
                 i++;
@@ -321,12 +324,12 @@ public class ArrayUtils
             }
             k++;
         }
-        while(i < text1.length) {
-            merged[k]= text1[i];
+        while (i < text1.length) {
+            merged[k] = text1[i];
             i++;
             k++;
         }
-        while(j < text2.length) {
+        while (j < text2.length) {
             merged[k] = text2[j];
             j++;
             k++;
@@ -334,53 +337,55 @@ public class ArrayUtils
         return merged;
 
     }
+
     /**
      * partitions the values into thoses greater than the pivot followed by those
      * less than or equal to the pivot, preserving their order within each group.
      *
-     * @param nums the integer array to partition
+     * @param nums  the integer array to partition
      * @param pivot the value used to divide the array
      * @return a new array with values greater than the pivot first, followed by values less than or equal to the pivot
      * @throws IllegalArgumentException if nums is null
      */
-    public static int[]partition(int [] nums, int pivot){
-        if(nums == null) {
+    public static int[] partition(int[] nums, int pivot) {
+        if (nums == null) {
             throw new IllegalArgumentException("the array must not be null.");
         }
-        int[]greaterBuffer = new int[nums.length];
-        int[]lesserOrEqualBuffer = new int[nums.length];
+        int[] greaterBuffer = new int[nums.length];
+        int[] lesserOrEqualBuffer = new int[nums.length];
         int greaterCount = 0;
         int lesserOrEqualCount = 0;
 
-        for(int num : nums) {
+        for (int num : nums) {
             if (num > pivot) {
                 greaterBuffer[greaterCount++] = num;
             } else {
                 lesserOrEqualBuffer[lesserOrEqualCount++] = num;
             }
         }
-        int[]greaterValues = new int [greaterCount];
-        int[]lesserOrEqualValues = new int[lesserOrEqualCount];
+        int[] greaterValues = new int[greaterCount];
+        int[] lesserOrEqualValues = new int[lesserOrEqualCount];
 
-        for(int i = 0; i < greaterCount; i ++ ) {
+        for (int i = 0; i < greaterCount; i++) {
             greaterValues[i] = greaterBuffer[i];
         }
-        for(int i = 0; i < lesserOrEqualCount; i++ ) {
+        for (int i = 0; i < lesserOrEqualCount; i++) {
             lesserOrEqualValues[i] = lesserOrEqualBuffer[i];
         }
         return merge(greaterValues, lesserOrEqualValues);
     }
+
     /**
      * Partitions string value into those less than or equal to the pivot
      * and those greater than the pivot, then merges them into ascending order.
      *
-     * @param text the string array to partition
+     * @param text  the string array to partition
      * @param pivot the values used to divide the array
      * @return a new array containing all values in ascending order, with values
-     *         less than or equal to the pivot before those greater than the pivot
+     * less than or equal to the pivot before those greater than the pivot
      * @throws IllegalArgumentException if text is null
      */
-    public static String[] partition(String[] text,String pivot) {
+    public static String[] partition(String[] text, String pivot) {
         if (text == null) {
             throw new IllegalArgumentException("The array must not be null.");
 
@@ -414,42 +419,42 @@ public class ArrayUtils
 
         return orderedMerge(lowerOrEqualTrimmed, greaterTrimmed);
     }
+
     /**
-     * Returns a new array containing the first occurrence of each number
+     * Returns distinct values in order of first appearance, growing the result as needed.
      *
-     * @param numbers the array to deduplicate
-     * @return a new array with duplicate numbers removed
-     * @throws IllegalArgumentException if numbers is null
+     * @param numbers the integer array to deduplicate
+     * @return a new array containing each distinct value once
      */
     public static int[] deduplicate(int[] numbers) {
         if (numbers == null) {
-            throw new IllegalArgumentException("the array must not be null. ");
-
+            throw new IllegalArgumentException("The array must not be null.");
         }
-        int[] uniqueNumbers = new int[0];
+        int[] result = new int[0];
 
         for (int number : numbers) {
-            boolean alreadySeen = false;
+            boolean alreadyThere = false;
 
-            for (int existing : uniqueNumbers) {
+            for (int existing : result) {
                 if (existing == number) {
-                    alreadySeen = true;
+                    alreadyThere = true;
                     break;
                 }
             }
-            if (!alreadySeen) {
-                int[] largerArray = new int[uniqueNumbers.length + 1];
+            if (!alreadyThere) {
+                int[] largerResult = new int[result.length + 1];
 
-                for (int i = 0; i < uniqueNumbers.length; i++) {
-                    largerArray[i] = uniqueNumbers[i];
+                for (int i = 0; i < result.length; i++) {
+                    largerResult[i] = result[i];
                 }
-                largerArray[uniqueNumbers.length] = number;
-                uniqueNumbers = largerArray;
+                largerResult[result.length] = number;
+                result = largerResult;
             }
         }
-        return uniqueNumbers;
+        return result;
+    }
+
     }
 
 
-}
 

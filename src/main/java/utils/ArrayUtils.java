@@ -1,7 +1,7 @@
 package utils;
 
 import java.util.Arrays;
-
+//CA1 Fundamental and Brute Force Algorithms
 /**
  * Provides utility methods for working with arrays
  */
@@ -243,7 +243,7 @@ public class ArrayUtils {
         }
         return resizedArray;
     }
-
+    // CA2 Array Manipulation – Merging & Partitioning
     /**
      * Combines two integers arrays into a new array without sorting the elements
      *
@@ -299,7 +299,7 @@ public class ArrayUtils {
         return merged;
 
     }
-
+//CA2 Array Manipulation – Merging & Partitioning
     /**
      * Mergers two case-insensitively sorted string arrays into one sorted array
      *
@@ -337,7 +337,7 @@ public class ArrayUtils {
         return merged;
 
     }
-
+ // CA3 Array Manipulation – Merging & Partitioning
     /**
      * partitions the values into thoses greater than the pivot followed by those
      * less than or equal to the pivot, preserving their order within each group.
@@ -419,7 +419,7 @@ public class ArrayUtils {
 
         return orderedMerge(lowerOrEqualTrimmed, greaterTrimmed);
     }
-
+       //CA4  Deduplication	Removing Duplicate Elements
     /**
      * Returns distinct values in order of first appearance, growing the result as needed.
      *
@@ -453,6 +453,50 @@ public class ArrayUtils {
         }
         return result;
     }
+    /**
+     * Removes duplicate grades by marking later occurrences with -1, then removes the markers.
+     * Grades must be from 0 to 100 so -1 can be used as a temporary marker.
+     *
+     * @param grades the grade array to deduplicate
+     * @return a new array containing each grade once, in first-appearance order
+     */
+    public static int[] filterDuplicates(int[]grades) {
+        if (grades == null) {
+            throw new IllegalArgumentException("The array must not be null.");
+        }
+
+        int[] filtered = new int[grades.length];
+
+        for (int i = 0; i < grades.length; i++) {
+            filtered[i] = grades[i];
+        }
+        for (int i = 0; i < filtered.length; i++) {
+            if (filtered[i] != -1) {
+                for (int j = i + 1; j < filtered.length; j++) {
+                    if (filtered[i] == filtered[j]) {
+                        filtered[j] = -1;
+                    }
+                }
+            }
+        }
+        int resultSize = 0;
+        for (int grade : filtered) {
+            if (grade != -1) {
+                resultSize++;
+            }
+        }
+        int[] result = new int[resultSize];
+        int resultIndex = 0;
+
+        for (int grade : filtered) {
+            if (grade != -1) {
+                result[resultIndex] = grade;
+                resultIndex++;
+            }
+        }
+        return result;
+    }
+
 
     }
 

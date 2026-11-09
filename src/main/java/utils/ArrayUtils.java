@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Provides utility methods for working with arrays
  */
-public class ArrayUtils 
+public class ArrayUtils {
     /**
      * prints each element along with its index
      *

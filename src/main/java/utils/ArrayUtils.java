@@ -496,7 +496,38 @@ public class ArrayUtils {
         }
         return result;
     }
+    /**
+     * Deduplicates an array already sorted in ascending order by comparing neighbouring values.
+     *
+     * @param numbers the integer array sorted in ascending order
+     * @return a new sorted array containing each distinct value once
+     */
+    public static int[] sortedDeduplicate(int[]numbers) {
+        if (numbers == null) {
+            throw new IllegalArgumentException("The array must not be null.");
+        }
+        if (numbers.length == 0) {
+            return new int[0];
+        }
+        int resultSize = 1;
 
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] != numbers[i - 1]) {
+                resultSize++;
+            }
+        }
+        int[] result = new int[resultSize];
+        result[0] = numbers[0];
+
+        int resultIndex = 1;
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] != numbers[i - 1]) {
+                result[resultIndex] = numbers[i];
+                resultIndex++;
+            }
+        }
+        return result;
+    }
 
     }
 

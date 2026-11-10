@@ -37,6 +37,7 @@ public class NumberUtilities {
         }
         return result;
     }
+
     public static int[] sortedDeduplicate(int[] nums) {
         if (nums == null) {
             throw new IllegalArgumentException("The array must not be null.");
@@ -62,4 +63,29 @@ public class NumberUtilities {
         }
         return result;
     }
+    //Searching for Data in Unsorted Arrays – Standard Linear Search
+
+    /**
+     * Searches the array for a value and returns its last position
+     *
+     * @param nums  the to search
+     * @param value the value to locate
+     * @return the last position of value, or -1 if ir is not found
+     */
+    //Searching for data in a numeric array using standard linear search
+    public static int linearSearch(int[] nums, int value) {
+        int position = -1;
+        int iterations = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            iterations++;
+
+            if (nums[i] == value) {
+                position = i;
+            }
+        }
+        System.out.println("Number of iterations:" + iterations);
+        return position;
+    }
 }
+

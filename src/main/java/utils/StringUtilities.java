@@ -29,4 +29,21 @@ public class StringUtilities {
         }
         return filtered;
     }
+    //Searching for data in a String array using standard linear search
+    /**
+     * Searches for the first occurrence of a string.
+     *
+     * @param text the array to search
+     * @param value the string to find
+     * @return the index of the first match, or -1 if it is not found
+     */
+    public static int linearSearch(String[] text, String value){
+        for(int i = 0; i < text.length; i ++) {
+            if (text[i].equals(value)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 }
